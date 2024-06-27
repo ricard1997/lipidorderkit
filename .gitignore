@@ -96,7 +96,7 @@ ENV/
 .vscode/
 
 # file to create trajectory membrane
-./lipidorder/tests/membrane.py
+lipidorder/tests/membrane.py
 
 # Rope project settings
 .ropeproject
