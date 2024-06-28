@@ -44,6 +44,7 @@ def get_vectors(lista
     for i in range(len(lista)-1):
         vectores =lista[i+1].positions - lista[0].positions
         angles.append(vectores)
+
     angles = np.concatenate(angles, axis = 0)
     costheta = angles[:,2]**2/np.linalg.norm(angles, axis=1)**2
     order = np.mean(costheta)
@@ -136,13 +137,15 @@ def order_sn2(sel, lipid, n_chain):
                 f"name H{i+2}T and not name HT",
         ]
         if lipid == "POPE" or lipid == "POPS":
+            
             if selections[0] == "name C29":
-                selections[1] == "name H91"
+                selections[1] = "name H91"
             if selections[0] == "name C210":
-                selections[1] == "name H101"
+                selections[1] = "name H101"
         lista = []
         for selection in selections:
             atoms = sel.select_atoms(selection)
+            
             if atoms.n_atoms != 0:
                 lista.append(atoms)
         chains.append(get_vectors(lista))
@@ -178,7 +181,7 @@ def sn1(u, sel_string, lipid, n_chain, start = 0, stop = -1, step = 1):
 
     Returns
     -------
-    order_parameters : (array dim n_chain) 
+    order_parameters : (array dim (2,n_chain)) 
         array with the values of SCD
     serror : (array dim n_chain) 
         array with the std error of the values
@@ -197,7 +200,7 @@ def sn1(u, sel_string, lipid, n_chain, start = 0, stop = -1, step = 1):
     order_parameters = np.array(order_parameters)
     serror = 1.5 * np.std(order_parameters, axis = 0)/np.sqrt(len(order_parameters))
     order_parameters = np.abs(1.5 * np.mean(order_parameters, axis = 0) - 1)
-    return order_parameters, serror
+    return [order_parameters, serror]
 
 
 
@@ -231,7 +234,7 @@ def sn2(u, sel_string, lipid, n_chain, start = 0, stop = -1, step = 1):
     -------
     order_parameters : (array dim n_chain) 
         array with the values of SCD
-    serror : (array dim n_chain) 
+    serror : (array dim (2,n_chain)) 
         array with the std error of the values
     
 
@@ -248,6 +251,6 @@ def sn2(u, sel_string, lipid, n_chain, start = 0, stop = -1, step = 1):
     order_parameters = np.array(order_parameters)
     serror = 1.5 * np.std(order_parameters, axis = 0)/np.sqrt(len(order_parameters))
     order_parameters = np.abs(1.5 * np.mean(order_parameters, axis = 0) - 1)
-    return order_parameters, serror
+    return [order_parameters, serror]
 
 
