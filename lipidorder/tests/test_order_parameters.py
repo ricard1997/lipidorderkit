@@ -10,10 +10,14 @@ import os
 def universe():
     gro = "membrane.gro"
     xtc = "membrane.xtc"
-    print(os.path.isfile(gro))
-    print(os.path.isfile(xtc))
-    print(os.listdir())
-    return mda.Universe(gro, xtc)
+    path = os.getcwd()
+    last_directory = (os.path.basename(path))
+    if last_directory == "lipidorderkit":
+        path = os.path.join(path,"lipidorder", "tests")
+    elif lats_directory == "lipidorder":
+        path = os.path.join(path, "tests")
+    
+    return mda.Universe(os.path.join(path, gro), os.path.join(path,xtc))
 
 @pytest.fixture
 def n_chain():
