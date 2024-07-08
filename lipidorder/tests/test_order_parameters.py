@@ -14,7 +14,7 @@ def universe():
     last_directory = (os.path.basename(path))
     if last_directory == "lipidorderkit":
         path = os.path.join(path,"lipidorder", "tests")
-    elif lats_directory == "lipidorder":
+    elif last_directory == "lipidorder":
         path = os.path.join(path, "tests")
     
     return mda.Universe(os.path.join(path, gro), os.path.join(path,xtc))
