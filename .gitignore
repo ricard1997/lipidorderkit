@@ -99,6 +99,8 @@ ENV/
 lipidorder/tests/membrane.py
 lipidorder/tests/.membrane.xtc_offsets.lock
 lipidorder/tests/.membrane.xtc_offsets.npz
+lipidorder/data/.membrane.xtc_offsets.lock
+lipidorder/data/.membrane.xtc_offsets.npz
 lipidorder/tests/test.py
 # Rope project settings
 .ropeproject
