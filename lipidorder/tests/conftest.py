@@ -7,9 +7,9 @@ Global pytest fixtures
 # More information at
 # https://docs.pytest.org/en/stable/how-to/fixtures.html#scope-sharing-fixtures-across-classes-modules-packages-or-session
 
-import pytest
+#import pytest
 
-from lipidorder.data.files import MDANALYSIS_LOGO
+#from lipidorder.data.files import MDANALYSIS_LOGO
 
 
 #@pytest.fixture
