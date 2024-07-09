@@ -9,11 +9,13 @@ Use as ::
 """
 
 __all__ = [
-    "MDANALYSIS_LOGO",  # example file of MDAnalysis logo
+    "MEMBRANE_GRO",
+    "MEMBRANE_XTC"
 ]
 
 import importlib.resources
 
 data_directory = importlib.resources.files("lipidorder") / "data"
 
-MDANALYSIS_LOGO = data_directory / "mda.txt"
+MEMBRANE_GRO = data_directory / "membrane.gro"
+MEMBRANE_XTC = data_directory / "membrane.xtc"
